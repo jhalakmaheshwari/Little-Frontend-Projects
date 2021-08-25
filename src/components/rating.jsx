@@ -9,9 +9,7 @@ class Rating extends React.Component {
   }
 
   hoverHandler = (event) => {
-    console.log("onhoover");
     const elems = document.getElementsByClassName("star");
-    console.log(this.state.currentRating);
     const hoverRating = event.target.dataset.value;
     Array.from(elems).forEach((star) => {
       star.style.color = hoverRating >= star.dataset.value ? "yellow" : "gray";
@@ -19,7 +17,6 @@ class Rating extends React.Component {
   };
 
   starClickHandler = (event) => {
-    console.log("onclick", event.target.dataset.value);
     this.setState({
       currentRating: event.target.dataset.value
     });
@@ -27,7 +24,6 @@ class Rating extends React.Component {
 
   setRating = () => {
     const elems = document.getElementsByClassName("star");
-    console.log(this.state.currentRating);
     Array.from(elems).forEach((star) => {
       star.style.color =
         this.state.currentRating >= star.dataset.value ? "yellow" : "gray";

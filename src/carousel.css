@@ -1,0 +1,47 @@
+.carousel {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+}
+
+img {
+  width: 300px;
+}
+
+.right {
+  height: 20%;
+  align-self: center;
+  cursor: pointer;
+  position: relative;
+  right: 7%;
+  /* right: 50%; */
+  width: auto;
+  /* padding: 16px; */
+  margin-top: 22px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  filter: opacity(40%);
+}
+
+.left {
+  height: 20%;
+  align-self: center;
+  cursor: pointer;
+  position: relative;
+  left: 7%;
+  /* right: 50%; */
+  width: auto;
+  /* padding: 16px; */
+  margin-top: 22px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  filter: opacity(40%);
+}

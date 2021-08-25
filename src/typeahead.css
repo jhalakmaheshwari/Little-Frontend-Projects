@@ -1,0 +1,19 @@
+.typeaheadContainer {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  justify-content: left;
+}
+ul {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style-type: none;
+}
+ul .resultList {
+  border: 1px solid #ddd;
+  background-color: #f6f6f6;
+}

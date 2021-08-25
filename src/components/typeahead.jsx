@@ -19,15 +19,61 @@ class TypeAhead extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      throttle: this.newThrottling1(this.debouncedCalledFn, 1000)
+    });
+  }
+
   debouncedCalledFn = (typedVal) => {
-    console.log("Searching", typedVal);
+    console.log("Typed Val", typedVal);
     const results = this.state.searchData.filter((searchResult) =>
       searchResult.includes(typedVal)
     );
     this.setState({
       searchResults: results
     });
-    console.log("RESUlts", results);
+  };
+
+  throttlingFn = (fn, delay) => {
+    let lastTime = 0;
+    console.log("in throttling fn");
+    return function (...args) {
+      const present = new Date();
+      if (present - lastTime > delay) {
+        console.log("calling......");
+        fn(...args);
+        lastTime = present;
+      }
+    };
+  };
+
+  newThrottling = (event, fn, delay) => {
+    console.log("timer", this.state.timer);
+    if (!this.state.timer) {
+      console.log("LINE 48");
+      fn.apply(this, [event.target.value]);
+      this.setState({
+        timer: setTimeout(() => this.setState({ timer: undefined }), delay)
+      });
+    }
+  };
+
+  // Using closure in throttling
+  newThrottling1 = (fn, delay) => {
+    let flag = true;
+    return function (event) {
+      const context = this;
+      const args = arguments;
+      console.log("LINE 48", flag);
+      if (flag) {
+        fn.apply(this, [event.target.value]);
+        flag = false;
+        setTimeout(() => {
+          flag = true;
+        }, delay);
+      }
+    };
   };
 
   onKeyUpFn = (event, fn, delay) => {
@@ -43,10 +89,7 @@ class TypeAhead extends React.Component {
   render() {
     return (
       <div>
-        <input
-          type="text"
-          onKeyUp={(e) => this.onKeyUpFn(e, this.getData, 300)}
-        />
+        <input type="text" onKeyUp={(e) => this.state.throttle(e)} />
         <ul>
           {this.state.searchResults.map((searchRes) => (
             <li style={{ "list-style-type": "none", background: "yellow" }}>

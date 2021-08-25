@@ -2,3 +2,23 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.bar-container {
+  width: 200px;
+  height: 30px;
+  margin: "40px";
+  margin-top: 2px;
+  background-color: grey;
+}
+
+.bar {
+  background-color: green;
+  height: 100%;
+  width: 0%;
+}
+
+.repodiv {
+  height: 200px;
+  overflow: auto;
+  padding-bottom: 100px;
+}

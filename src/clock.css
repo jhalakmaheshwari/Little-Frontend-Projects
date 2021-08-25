@@ -1,0 +1,31 @@
+.analogClock {
+  background-color: yellow;
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.dial {
+  height: 50px;
+  /* width: 0.5px; */
+  position: absolute;
+  left: 50%;
+  /* width: 50px;
+  height: 50px; */
+  transform-origin: bottom left;
+}
+
+.hourToolTip {
+  border: 1px solid green;
+}
+.minuteToolTip {
+  border: 1px solid blue;
+}
+.secondToolTip {
+  border: 1px solid red;
+}
